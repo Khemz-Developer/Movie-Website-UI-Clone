@@ -33,5 +33,4 @@ coverage
 # Ignore specific Vue components
 
 src/components/movie.vue
-src/components/Footer.vue
 src/components/ContactMap.vue
