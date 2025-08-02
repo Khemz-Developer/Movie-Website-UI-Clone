@@ -59,8 +59,8 @@ export default {
 }
 
 .section-title {
-  color: #ffffff; /* White text */
-  font-size: 4rem; /* Larger, bolder title */
+  color: #ffffff;
+  font-size: 4rem;
   font-weight: 500;
   letter-spacing: 2px;
   margin-bottom: 2rem;
