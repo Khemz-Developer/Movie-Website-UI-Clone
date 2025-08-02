@@ -8,11 +8,7 @@
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
           invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
         </p>
-        <div class="intro-features">
-          <div class="feature">
-            <h3>Collect your favourites</h3>
-          </div>
-        </div>
+        
       </div>
     </div>
   </section>

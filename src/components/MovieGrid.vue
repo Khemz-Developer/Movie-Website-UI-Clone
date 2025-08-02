@@ -1,19 +1,24 @@
-
 <template>
   <section id="library" class="movie-collection">
     <div class="container">
       <!-- Section Title -->
       <div class="header">
-        <h1>Movie Collection</h1>
+        <h1>Collect your favourites</h1>
         <!-- Search Box -->
         <div class="search-container">
-          <input
-            type="text"
-            v-model="searchTerm"
-            @input="handleSearch"
-            placeholder="Search title and add to grid"
-            class="search-input"
-          >
+          <div class="search-input-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+              <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <input
+              type="text"
+              v-model="searchTerm"
+              @input="handleSearch"
+              placeholder="Search title and add to grid"
+              class="search-input"
+            >
+          </div>
           <!-- Search Dropdown -->
           <div v-if="searchResults.length > 0" class="search-dropdown">
             <div
@@ -179,7 +184,7 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #333;
+  border-bottom: 3px solid #bebdbd;
   padding-bottom: 1rem;
   margin-bottom: 2rem;
 }
@@ -187,17 +192,35 @@ export default {
 .header h1 {
   font-size: 2rem;
   font-weight: 500;
+  margin-right: auto;
 }
 
 .search-container {
   position: relative;
   width: 100%;
   max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #888;
+  width: 20px;
+  height: 20px;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .search-input {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.75rem 0.75rem 0.75rem 2.5rem;
   background: #222;
   color: white;
   border: 1px solid #444;
@@ -268,6 +291,11 @@ export default {
   font-size: 16px;
   cursor: pointer;
   z-index: 2;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .movie-image-container {
@@ -319,5 +347,44 @@ export default {
 .empty-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .header h1 {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  
+  .search-container {
+    max-width: none;
+  }
+  
+  .moviegrid-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .movie-image-container {
+    height: 400px;
+  }
+  
+  .container {
+    padding: 0 0.5rem;
+  }
+}
+
+/* Tablet Design */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .moviegrid-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
 }
 </style>
