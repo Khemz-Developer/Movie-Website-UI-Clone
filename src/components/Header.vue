@@ -49,10 +49,10 @@
           </li>
         </ul>
 
-        <div class="menu-toggle" @click="toggleMenu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+        <div class="menu-toggle" @click="toggleMenu" :class="{ 'menu-open': mobileMenuOpen }">
+          <span class="bar bar1"></span>
+          <span class="bar bar2"></span>
+          <span class="bar bar3"></span>
         </div>
       </nav>
     </div>
@@ -127,7 +127,7 @@ export default {
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .nav-link {
@@ -135,6 +135,11 @@ export default {
   text-decoration: none;
   padding-bottom: 0.25rem;
   transition: border-bottom 0.3s ease;
+  font-size: 1rem;
+}
+
+.nav-link:hover {
+  border-bottom: 2px solid #ffd700;
 }
 
 .nav-link.active {
@@ -145,17 +150,36 @@ export default {
   display: none;
   flex-direction: column;
   cursor: pointer;
+  width: 30px;
+  height: 25px;
+  justify-content: space-between;
+  position: relative;
 }
 
 .bar {
   width: 25px;
   height: 3px;
   background-color: white;
-  margin: 4px 0;
+  transition: all 0.3s ease;
+  transform-origin: center;
 }
 
-/* Responsive for mobile */
-@media (max-width: 768px) {
+/* Hamburger to X animation */
+.menu-toggle.menu-open .bar1 {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.menu-open .bar2 {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.menu-toggle.menu-open .bar3 {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile and Tablet Styles (≤1024px) */
+@media (max-width: 1024px) {
   .nav-menu {
     display: none;
     flex-direction: column;
@@ -164,7 +188,11 @@ export default {
     top: 100%;
     background: #111;
     padding: 1rem;
-    border-radius: 4px;
+    border-radius: 6px;
+    width: 200px;
+    gap: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.3s ease;
   }
 
   .nav-menu.show {
@@ -173,6 +201,29 @@ export default {
 
   .menu-toggle {
     display: flex;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+}
+
+/* Slide down animation for mobile menu */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional: Larger font for big screens */
+@media (min-width: 1025px) {
+  .nav-link {
+    font-size: 1.1rem;
   }
 }
 </style>
