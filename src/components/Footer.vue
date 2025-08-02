@@ -76,8 +76,9 @@ export default {
 @media (max-width: 767px) {
   .footer-content {
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     text-align: center;
+    align-items: center;
   }
 }
 
@@ -103,7 +104,10 @@ export default {
 
 @media (max-width: 767px) {
   .footer-social {
+    flex-direction: column;
+    gap: 1rem;
     justify-content: center;
+    align-items: center;
   }
 }
 
@@ -113,9 +117,17 @@ export default {
   margin-right: 0.5rem;
 }
 
+@media (max-width: 767px) {
+  .footer-social .social-title {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+}
+
 .footer-social .social-icons {
   display: flex;
   gap: 0.75rem;
+  justify-content: center;
 }
 
 .footer-social .social-link {
@@ -144,7 +156,7 @@ export default {
 @media (max-width: 767px) {
   .footer-bottom {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
     text-align: center;
   }
 }
