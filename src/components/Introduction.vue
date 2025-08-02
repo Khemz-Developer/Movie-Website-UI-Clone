@@ -1,9 +1,9 @@
 <template>
-  <section class="introduction section">
+  <section id="introduction" class="introduction section">
     <div class="top-border-line"></div>
     <div class="container">
       <div class="intro-content">
-        <h1 class="section-title">MOVIE LIBRARY</h1>
+        <h1 class="section-title animated-title">MOVIE LIBRARY</h1>
         <p class="intro-text">
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
           invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
@@ -33,11 +33,32 @@ export default {
   }
 }
 
+.animated-title {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 1s ease-out forwards;
+}
+
+
+.animated-title:hover {
+  color: #ffcc00;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .top-border-line {
   width: 100%;
-  height: 1px; /* thickness of the line */
+  height: 1px;
   background-color: rgb(107, 106, 106);
-  margin-bottom: 2rem; /* space below the line before the heading */
+  margin-bottom: 2rem;
 }
 
 .container {
@@ -73,9 +94,9 @@ export default {
 .intro-text {
   font-size: 16px;
   line-height: 1.6;
-  color: #cccccc; /* Light gray text for better readability */
+  color: #cccccc;
   margin-bottom: 3rem;
-  max-width: 600px; /* Constrain width for better readability */
+  max-width: 600px;
 }
 
 @media (max-width: 767px) {
@@ -103,7 +124,7 @@ export default {
   }
 }
 
-/* Add some subtle styling enhancements */
+
 .introduction::before {
   content: '';
   position: absolute;

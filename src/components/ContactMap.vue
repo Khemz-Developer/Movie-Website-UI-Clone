@@ -466,8 +466,12 @@ export default {
   }
   
   .submit-btn {
-    width: 100%;
+    width: auto;             
+    min-width: 220px;       
+    display: block;          
+    margin: 0 auto;         
     padding: 1.25rem;
+    margin-top: 30px;
   }
 }
 </style>
